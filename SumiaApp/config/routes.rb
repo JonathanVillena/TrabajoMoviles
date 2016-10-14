@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :tags
+  resources :bags
+  resources :dreams
+  resources :interpretations
+  resources :reviews
   root  'pages#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

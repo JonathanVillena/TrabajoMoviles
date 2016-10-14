@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @dream.title %>
+</p>
+
+<p>
+  <strong>Data time:</strong>
+  <%= @dream.data_time %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @dream.description %>
+</p>
+
+<%= link_to 'Edit', edit_dream_path(@dream) %> |
+<%= link_to 'Back', dreams_path %>
