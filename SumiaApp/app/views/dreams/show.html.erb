@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Dream -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @dream.title %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+  <dd><%= @dream.title %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:data_time) %>:</strong></dt>
+  <dd><%= @dream.data_time %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @dream.description %></dd>
+</dl>
 
-<p>
-  <strong>Data time:</strong>
-  <%= @dream.data_time %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @dream.description %>
-</p>
-
-<%= link_to 'Edit', edit_dream_path(@dream) %> |
-<%= link_to 'Back', dreams_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              dreams_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_dream_path(@dream), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              dream_path(@dream),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
